@@ -20,13 +20,13 @@ module.exports = function validateRegsiterInput(data){
     if(!Validator.isEmail(data.email)){
         errors.email = 'Email is invalid';
     }
-    if(!Validator.isEmpty(data.email)){
-        errors.password = 'Email is required';
+    if(Validator.isEmpty(data.email)){
+        errors.email = 'Email is required';
     }
-    if(!Validator.isEmpty(data.password)){
+    if(Validator.isEmpty(data.password)){
         errors.password = 'Password field is required';
     }
-    if(!Validator.isEmpty(data.password2)){
+    if(Validator.isEmpty(data.password2)){
         errors.password2 = 'Password field is required';
     }
 

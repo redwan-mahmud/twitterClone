@@ -4,14 +4,14 @@ const validText = require("./valid-text");
 module.exports = function validateTweetInput(data) {
   let errors = {};
 
-  data.tweet = validText(data.tweet) ? data.tweet : "";
+  data.text = validText(data.text) ? data.text : "";
 
-  if (!Validator.isLength(data.tweet, { min: 4, max: 140 })) {
-    errors.handle = "Tweet must be between 4 and 140 characters";
+  if (!Validator.isLength(data.text, { min: 4, max: 140 })) {
+    errors.tweet = "Tweet must be between 4 and 140 characters";
   }
 
-  if (Validator.isEmpty(data.tweet)) {
-    errors.handle = "Tweet field is required";
+  if (Validator.isEmpty(data.text)) {
+    errors.tweet = "Tweet field is required";
   }
 
   return {
