@@ -6,10 +6,10 @@ const passport = require("passport");
 const Tweets = require("../../models/Tweets");
 module.exports = router;
 
-router.get("/tweets", (req, res) => {
+router.get("/", (req, res) => {
   Tweets.find()
     .sort({ date: -1 })
-    .then((tweets) => res.join(tweets))
+    .then((tweets) => res.json(tweets))
     .catch((err) =>
       res.status(404).json({ notweetsfound: " No tweets found" })
     );
